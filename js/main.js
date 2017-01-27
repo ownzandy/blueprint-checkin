@@ -2,28 +2,22 @@
 
 $(function () {
 
-	var toggleTypes = ['SPONSOR', 'VOLUNTEER', 'MENTOR', 'ORGANIZER', 'HACKER'];
+	var toggleTypes = ['Participant','Mentor','Sponsor','Volunteer','Organizer'],
+		currentType = 0;
 
-	var benefit = "Shirt"
-	var types = ['mentor', 'participant', 'volunteer'];
 	var fontSize = 4.9;
 
 	//set search to email at start
 	localStorage.setItem('search', 'email')
+	
+	$("#toggleRole").click(function () {
+		if(currentType < toggleTypes.length -1)
+			++currentType;
+		else
+			currentType = 0;
+		$("#type").val(toggleTypes[currentType]);
+	});
 
-	// $( "#toggleButton" ).click(function() {
-	// 	if($('#searchInput').attr('placeholder') == 'Scan Swag') {
-	// 		$('#searchInput').attr('placeholder', 'Search By Email')
-	// 		$('#searchInput').val('')
-	// 		$('#toggleButton').html('Toggle For Swag Scan')
-	// 		localStorage.setItem('search', 'email')
-	// 	} else {
-	// 		$('#searchInput').attr('placeholder', 'Scan Swag')
-	// 		$('#searchInput').val('')
-	// 		$('#toggleButton').html('Toggle For Check-in')
-	// 		localStorage.setItem('search', 'swag')
-	// 	}
-	// });
 
 	// $('#searchInput').on('input', function() {
 	// 	if ($('#toggleButton').text().trim() == 'Toggle For Check-in') {
@@ -46,18 +40,6 @@ $(function () {
 		checkin()
 		javascript: print();
 	});
-
-	generateBar(1000);
-
-	function generateBar(id) {	
-		$("#barcodeC").empty()
-		$("#barcodeC").barcode(String(id + 1000), "code39", {
-		    barWidth: 4,
-		    barHeight: 80,
-		    output: "bmp"
-		});
-		$("#barcodeC").width('auto');
-     }
 
 	function checkin() {
 		var role = localStorage.getItem('role')
@@ -85,12 +67,6 @@ $(function () {
 			}
 		})
 	}
-
-	// Cat updating
-	$('#crop_cat_container').click(function () {
-		$("#crop_cat").css("background-image", "url(http://thecatapi.com/api/images/get?format=src&type=jpg&size=small&" + new Date().getTime());
-	});
-	$('#crop_cat_container').click();
 
 	/// Search Interface Setup
 	$('#search').click(function () {
@@ -238,7 +214,7 @@ $(function () {
 							shrinkToFill($('#first'), fontSize, "", "Montserrat, sans-serif");
 							$('#full').val(first["person"]["email"]);
 							localStorage.setItem('email', first["person"]["email"])
-							generateBar(first["person"]["id"]);
+							
 							var upper = types[i].toUpperCase();
 							// mod = first[types[i]][0]['person_id'] % 3
 							// if(types[i] == 'participant') {
@@ -293,6 +269,9 @@ $(function () {
 		var $whichText = $('#first');
 		if ($(this).parent().attr('id') == "r2") {
 			$whichText = $('#full');
+		}
+		if ($(this).parent().attr('id') == "r3") {
+			$whichText = $('#org');
 		}
 		if ($(this).html() != "+") {
 			multiplier = -1;
