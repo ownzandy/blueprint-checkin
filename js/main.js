@@ -2,6 +2,7 @@
 
 $(function () {
 
+	var types = ['mentor', 'participant', 'volunteer'];
 	var toggleTypes = ['Participant','Mentor','Sponsor','Volunteer','Organizer'],
 		currentType = 0;
 
