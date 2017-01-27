@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Blueprint Spring 2017 Check-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='https://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='css/main.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div id="notifications" class="dontPrint">
+        <div class="notify" id="good"></div>
+        <div class="notify" id="bad"></div>
+    </div>
+    <div id="page">
+        <div id="search" class="dontPrint">
+            <img id="searchIcon" src="img/search.svg" />
+            <input id="searchInput" type="text" placeholder="Search by Email"></input>
+        </div>
+        <div id="success">
+            <div id="template">
+                <div id="topBar">
+                    <div id="name"> Blueprint 17 </div>
+                    <textarea type="textarea" id="type">ROLE</textarea>
+                </div>
+                <div id="top">
+                    <div id="crop_cat_container">
+                        <div id="crop_cat"></div>
+                    </div>
+                    <div id="names">
+                        <input type="text" id="first" placeholder="Full Name" />
+                        <textarea id="full" rows="3" placeholder="Email"></textarea>
+                    </div>
+                </div>
+
+                <div id="barContainer">
+                    <div id="barcode">
+                        <div id="barcodeC"></div>
+                    </div>
+<!--                     <div id="barHR"></div>
+ -->                </div>
+
+                <div id="resizers">
+                    <div id="r1" class="resizer">
+                        <button>+</button>
+                        <button>–</button>
+                    </div>
+                    Change Font Size
+                    <div id="r2" class="resizer">
+                        <button>+</button>
+                        <button>–</button>
+                    </div>
+                </div>
+                <div id="bcTarget"></div>
+                <img id="rc" src="img/rc.png">
+            </div>
+        </div>
+        <button id="print" class="print dontPrint">CHECK IN + PRINT</button>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-barcode.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
