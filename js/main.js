@@ -215,6 +215,7 @@ $(function () {
 							shrinkToFill($('#first'), fontSize, "", "Montserrat, sans-serif");
 							$('#full').val(first["person"]["email"]);
 							localStorage.setItem('email', first["person"]["email"])
+							console.log(first["person"])
 							
 							var upper = types[i].toUpperCase();
 							// mod = first[types[i]][0]['person_id'] % 3
